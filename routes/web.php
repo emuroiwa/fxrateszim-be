@@ -20,7 +20,7 @@ Route::get('/hdtuto', function() {
 
     $crawler = Goutte::request('GET', 'https://www.marketwatch.co.zw');
 
-    $crawler->filter('.elementor-widget-container .elementor-shortcode')->each(function ($node) {
+    $crawler->filter('#tablepress-4 tr td')->each(function ($node) {
 
       dump($node->text());
 
