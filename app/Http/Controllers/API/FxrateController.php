@@ -51,12 +51,13 @@ class FxrateController extends Controller
             if (\is_numeric($value->text())) {
                 $counter = fxcounter::find($key+1); 
                 $rate = new fxrate;
-                $rate->rate = $value->text();
+                $rate->buy_rate = $value->text();
+                $rate->sell_rate = $value->text();
                 $counter = $counter->fxrate()->save($rate);
             }
         });
 
-
+        return ['message' => "Success"];
     }
 
     /**
